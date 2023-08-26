@@ -85,37 +85,19 @@ export function UserInfoForm({ user, className, ...props }: UserNameFormProps) {
     >
       <Card>
         <CardHeader>
-          <CardTitle>Your Name</CardTitle>
+          <CardTitle>User Details</CardTitle>
           <CardDescription>
-            Please enter your full name or a display name you are comfortable
-            with.
+            Your can update user information here.
           </CardDescription>
         </CardHeader>
         <CardContent>
+          <Label className="FormLabel">First Name:</Label>
           <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="name">
-              Name
-            </Label>
-            <Label className="sr-only" htmlFor="first_name">
-              Name
-            </Label>
             <Input
               id="first_name"
               className="w-[400px]"
               size={32}
               {...register("first_name")}
-            />
-            <Input
-              id="last_name"
-              className="w-[400px]"
-              size={32}
-              {...register("last_name")}
-            />
-            <Input
-              id="phone_number"
-              className="w-[400px]"
-              size={32}
-              {...register("phone_number")}
             />
             {/* Make sure to insert error posibilities for new inputs */}
             {errors?.first_name && (
@@ -123,11 +105,35 @@ export function UserInfoForm({ user, className, ...props }: UserNameFormProps) {
                 {errors.first_name.message}
               </p>
             )}
+          </div>
+        </CardContent>
+        <CardContent>
+        <Label className="FormLabel">Last Name:</Label>
+          <div className="grid gap-1">
+            <Input
+              id="last_name"
+              className="w-[400px]"
+              size={32}
+              {...register("last_name")}
+            />
+            {/* Make sure to insert error posibilities for new inputs */}
             {errors?.last_name && (
               <p className="px-1 text-xs text-red-600">
                 {errors.last_name.message}
               </p>
             )}
+          </div>
+        </CardContent>
+        <CardContent>
+          <Label className="FormLabel">Phone Number:</Label>
+          <div className="grid gap-1">
+            <Input
+              id="phone_number"
+              className="w-[400px]"
+              size={32}
+              {...register("phone_number")}
+            />
+            {/* Make sure to insert error posibilities for new inputs */}
             {errors?.phone_number && (
               <p className="px-1 text-xs text-red-600">
                 {errors.phone_number.message}
@@ -144,7 +150,7 @@ export function UserInfoForm({ user, className, ...props }: UserNameFormProps) {
             {isSaving && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            <span>Save</span>
+            <span>Save Details</span>
           </button>
         </CardFooter>
       </Card>
