@@ -46,6 +46,9 @@ export interface Database {
           id: string
           image: string | null
           name: string | null
+          first_name: string | null
+          last_name: string | null
+          phone_number: string | null
           stripe_current_period_end: string | null
           stripe_customer_id: string | null
           stripe_price_id: string | null
@@ -59,6 +62,9 @@ export interface Database {
           id: string
           image?: string | null
           name?: string | null
+          first_name?: string | null
+          last_name?: string | null
+          phone_number?: string | null
           stripe_current_period_end?: string | null
           stripe_customer_id?: string | null
           stripe_price_id?: string | null
@@ -72,6 +78,9 @@ export interface Database {
           id?: string
           image?: string | null
           name?: string | null
+          first_name?: string | null
+          last_name?: string | null
+          phone_number?: string | null
           stripe_current_period_end?: string | null
           stripe_customer_id?: string | null
           stripe_price_id?: string | null
