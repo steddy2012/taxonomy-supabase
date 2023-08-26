@@ -1,3 +1,5 @@
+// Anything in api is what connects to the db 
+
 import { cookies } from "next/headers"
 import { createRouteHandlerClient  } from "@supabase/auth-helpers-nextjs"
 import * as z from "zod"

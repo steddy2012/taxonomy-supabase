@@ -1,3 +1,5 @@
+//insert all columns in regards to table from supabase here. along side the db.ts file
+
 export interface PageMeta {
   title: string
   description: string
