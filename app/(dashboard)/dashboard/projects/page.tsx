@@ -2,10 +2,10 @@ import { redirect } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { EmptyPlaceholder } from "@/components/empty-placeholder"
-import { ProjectUploadForm } from "@/components/forms/template/project-upload-form"
 import { DashboardHeader } from "@/components/header"
 import { ProjectCreateButton } from "@/components/projectItems/project-create-button"
 import { ProjectItem } from "@/components/projectItems/project-item"
+import { ProjectUploadForm } from "@/components/projectItems/project-upload-form"
 import { DashboardShell } from "@/components/shell"
 import { createServerSupabaseClient, getUser } from "@/app/supabase-server"
 
@@ -56,11 +56,10 @@ export default async function ProjectsPage() {
         )}
       </div>
       <ProjectUploadForm
-        user={{
-          id: user.id,
-          first_name: user.first_name || "",
-          last_name: user.last_name || "",
-          phone_number: user.phone_number || "",
+        project={{
+          lot_number: allFileUploads?.lot_number || "",
+          project_name: allFileUploads?.project_name || "",
+          due_date: allFileUploads?.due_date || "",
         }}
       />
     </DashboardShell>
