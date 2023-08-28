@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { UserInfoForm } from "@/components/forms/template/user-info-form"
 import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
+import { UserNameForm } from "@/components/user-name-form"
 import { getUser } from "@/app/supabase-server"
 
 export const metadata = {
@@ -32,6 +33,7 @@ export default async function UserProfilePage() {
             phone_number: user.phone_number || "",
           }}
         />
+        <UserNameForm user={{ id: user.id, name: user.name || "" }} />
       </div>
     </DashboardShell>
   )

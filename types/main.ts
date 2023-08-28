@@ -36,3 +36,20 @@ export interface Post {
   updated_at: string
   author_id: string
 }
+
+export interface AllFileUploads {
+  id: string /* primary key */
+  user_id: string
+  company_id: string
+  lot_number: string
+  project_name: string
+  file_name: string
+  date_added: string
+  due_date: string
+  assigned_user: string | null
+  assigned_user_id: string | null
+  comment: string | null
+  file_path: string | null
+  status: string
+  drawing_scale: string | null
+}
