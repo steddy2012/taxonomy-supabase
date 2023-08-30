@@ -39,13 +39,13 @@ export interface Post {
 
 export interface AllFileUploads {
   id: string /* primary key */
-  user_id: string
-  company_id: string
-  lot_number: string
-  project_name: string
-  file_name: string
-  date_added: string
-  due_date: string
+  user_id: string | null
+  company_id: string | null
+  lot_number: string | null
+  project_name: string | null
+  file_name: string | null
+  date_added: string | null
+  due_date: string | null
   assigned_user: string | null
   assigned_user_id: string | null
   comment: string | null

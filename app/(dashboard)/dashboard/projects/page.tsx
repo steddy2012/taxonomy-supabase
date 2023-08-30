@@ -59,7 +59,7 @@ export default async function ProjectsPage() {
         project={{
           lot_number: allFileUploads?.lot_number || "",
           project_name: allFileUploads?.project_name || "",
-          due_date: allFileUploads?.due_date || "",
+          comment: allFileUploads?.comment || "",
         }}
       />
     </DashboardShell>
