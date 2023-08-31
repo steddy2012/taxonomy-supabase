@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { EmptyPlaceholder } from "@/components/empty-placeholder"
 import { DashboardHeader } from "@/components/header"
+import { FileUploadDialog } from "@/components/projectItems/file-upload-dialog"
 import { ProjectCreateButton } from "@/components/projectItems/project-create-button"
 import { ProjectItem } from "@/components/projectItems/project-item"
 import { ProjectUploadForm } from "@/components/projectItems/project-upload-form"
@@ -32,9 +33,13 @@ export default async function ProjectsPage() {
   return (
     <DashboardShell>
       <DashboardHeader heading="Projects Page" text="View projects.">
-        <ProjectCreateButton>
-          <span>Upload File</span>
-        </ProjectCreateButton>
+        <FileUploadDialog
+          project={{
+            lot_number: allFileUploads?.lot_number || "",
+            project_name: allFileUploads?.project_name || "",
+            comment: allFileUploads?.comment || "",
+          }}
+        />
       </DashboardHeader>
       <div>
         {allFileUploads?.length ? (
@@ -55,13 +60,6 @@ export default async function ProjectsPage() {
           </EmptyPlaceholder>
         )}
       </div>
-      <ProjectUploadForm
-        project={{
-          lot_number: allFileUploads?.lot_number || "",
-          project_name: allFileUploads?.project_name || "",
-          comment: allFileUploads?.comment || "",
-        }}
-      />
     </DashboardShell>
   )
 }
