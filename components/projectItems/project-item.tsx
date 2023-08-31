@@ -8,7 +8,7 @@ import { ProjectOperations } from "@/components/projectItems/project-operations"
 interface ProjectItemProps {
   project: Pick<
     AllFileUploads,
-    "id" | "lot_number" | "assigned_user" | "date_added"
+    "id" | "lot_number" | "assigned_user" | "date_added" | "project_name"
   >
 }
 
@@ -22,6 +22,7 @@ export function ProjectItem({ project }: ProjectItemProps) {
         >
           Lot Number: {project.lot_number}
         </Link>
+        <h1 className="font-semibold">Project: {project.project_name}</h1>
         <div>
           <p className="text-sm text-muted-foreground">
             Added on: {formatDate(new Date(project.date_added).toDateString())}

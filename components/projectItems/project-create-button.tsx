@@ -54,7 +54,7 @@ export function ProjectCreateButton({
     // This forces a cache invalidation.
     router.refresh()
 
-    router.push(`/editor/${project[0].id}`)
+    router.push(`/file-upload`)
   }
 
   return (
@@ -75,7 +75,7 @@ export function ProjectCreateButton({
       ) : (
         <Icons.add className="mr-2 h-4 w-4" />
       )}
-      New Project
+      Upload File
     </button>
   )
 }

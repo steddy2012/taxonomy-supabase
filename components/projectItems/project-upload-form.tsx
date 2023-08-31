@@ -24,7 +24,7 @@ import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
 interface ProjectUploadFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  project: Pick<AllFileUploads,  "lot_number" | "project_name" | "comment">
+  project: Pick<AllFileUploads, "lot_number" | "project_name" | "comment">
 }
 
 type FormData = z.infer<typeof projectUploadSchema> // Always change zod schema from lib/validations
@@ -39,7 +39,7 @@ export function ProjectUploadForm({
     handleSubmit,
     register,
     formState: { errors },
-    reset
+    reset,
   } = useForm<FormData>({
     resolver: zodResolver(projectUploadSchema),
     defaultValues: {
@@ -64,7 +64,7 @@ export function ProjectUploadForm({
         project_name: data.project_name,
         comment: data.comment,
       }),
-    }).then((res) => console.log(res.json()));
+    }).then((res) => console.log(res.json()))
 
     // console.log(response.json())
 
@@ -82,11 +82,9 @@ export function ProjectUploadForm({
       description: "Your project has been uploaded.",
     })
 
-    reset();
+    reset()
     router.refresh()
-
   }
-
 
   return (
     <form
@@ -95,12 +93,9 @@ export function ProjectUploadForm({
       {...props}
     >
       <Card>
-
         <CardHeader>
           <CardTitle>Project Upload</CardTitle>
-          <CardDescription>
-            Upload the project.
-          </CardDescription>
+          <CardDescription>Upload the project.</CardDescription>
         </CardHeader>
         <CardContent>
           <Label className="FormLabel">Lot Number:</Label>
@@ -152,8 +147,6 @@ export function ProjectUploadForm({
               </p>
             )}
           </div>
-
-        
         </CardContent>
         <CardFooter>
           <button
@@ -167,11 +160,8 @@ export function ProjectUploadForm({
             <span>Save Details</span>
           </button>
         </CardFooter>
-        
       </Card>
-
-      </form>
-  
+    </form>
   )
 }
 

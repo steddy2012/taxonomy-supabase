@@ -61,11 +61,8 @@ export async function POST(req: Request) {
       return new Response("Unauthorized", { status: 403 })
     }
 
-
     const { user } = session
-
     const subscriptionPlan = await getUserSubscriptionPlan(user.id)
-
 
    // If user is on a free plan.
    // Check if user has reached limit of 3 posts.
@@ -73,10 +70,10 @@ export async function POST(req: Request) {
       const { count } = await supabase
         .from("all_file_uploads")
         .select("*", { count: "exact", head: true })
-        .eq("user_id)", user.id)
+        .eq("user_id)", user.id) //possibly change to ammount company can have. not just the user
 
       if (count && count >= 3) {
-        throw new RequiresProPlanError()
+        return new Response("Requires Pro Plan", { status: 402 });
       }
     }
 
@@ -96,10 +93,15 @@ export async function POST(req: Request) {
       }
 
       return new Response(JSON.stringify(project))
-
-
   } catch (error) {
       console.log({error})
+      if (error instanceof z.ZodError) {
+        return new Response(JSON.stringify(error.issues), { status: 422 })
+      }
+
+      if (error instanceof RequiresProPlanError) {
+        return new Response("Requires Pro Plan", { status: 402 });
+      }
 
       return new Response(error.message || "Internal Server Error", { status: 500 })
   }

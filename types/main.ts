@@ -38,7 +38,7 @@ export interface Post {
 }
 
 export interface AllFileUploads {
-  id: string /* primary key */
+  id: string /* primary key */ //adust all nullable props based on db
   user_id: string | null
   company_id: string | null
   lot_number: string | null
